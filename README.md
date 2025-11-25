@@ -14,6 +14,9 @@ All three expect the synthetic `.npz` files produced by your data generators und
 
 These are the minimal steps for a fresh clone so that **other people can reproduce results** without touching any local paths.
 
+For a high-level overview of the project and results, see the accompanying presentation:  
+[Detector clustering transformers and GNNs – presentation](https://drive.google.com/file/d/1ebNVpTzbxWo1XX1tmrEB542-bl2xnC9L/view?usp=sharing)
+
 ### 0. Prerequisite
 
 - You need a working **Conda installation** (Anaconda or Miniconda) with `conda` available on your `PATH`.
@@ -35,7 +38,14 @@ You can replace `detector_env` with any name you like. The `prefix:` line has be
 
 You have **two options**:
 
-- **Option A – generate locally** (slower, but fully reproducible)
+- **Option A – download a pre‑generated dataset archive (fast start)**
+
+  1. Download the archive from Google Drive:  
+     [`synthetic_events` archive](https://drive.google.com/file/d/139C7lTBZOvV4dADI3L0u6XyijFQcxrw4/view?usp=sharing).
+  2. Place the downloaded file in the **`Evaluating_Transformer_Based_Models_for_Clustering_in_Detector_Data`** directory.
+  3. Extract it there so that you end up with a `synthetic_events/` folder next to the training scripts.
+
+- **Option B – generate locally** (slower, but fully reproducible)
 
   ```bash
   cd Evaluating_Transformer_Based_Models_for_Clustering_in_Detector_Data
@@ -43,13 +53,6 @@ You have **two options**:
   ```
 
   This will create the `synthetic_events/` directory with all required `.npz` files.
-
-- **Option B – download a pre‑generated dataset archive**
-
-  1. Download the archive from the shared Google Drive link:  
-     [`synthetic_events` archive](https://drive.google.com/file/d/139C7lTBZOvV4dADI3L0u6XyijFQcxrw4/view?usp=sharing).
-  2. Place the downloaded file in the **`Evaluating_Transformer_Based_Models_for_Clustering_in_Detector_Data`** directory.
-  3. Extract it there so that you end up with a `synthetic_events/` folder next to the training scripts.
 
 ### 3. Train the three models (dynamic mode)
 
