@@ -14,6 +14,10 @@ All three expect the synthetic `.npz` files produced by your data generators und
 
 These are the minimal steps for a fresh clone so that **other people can reproduce results** without touching any local paths.
 
+### 0. Prerequisite
+
+- You need a working **Conda installation** (Anaconda or Miniconda) with `conda` available on your `PATH`.
+
 ### 1. Create and activate the Conda environment
 
 From this directory (where `environment_full.yml` lives):
@@ -27,16 +31,25 @@ conda activate detector_env
 
 You can replace `detector_env` with any name you like. The `prefix:` line has been removed from `environment_full.yml`, so the file is portable.
 
-### 2. Generate the synthetic datasets (train / val / test)
+### 2. Get the synthetic datasets (train / val / test)
 
-Run the data generator once; it will create the required `synthetic_events/` folder and all `.npz` files:
+You have **two options**:
 
-```bash
-cd Evaluating_Transformer_Based_Models_for_Clustering_in_Detector_Data
-python synthetic_data_dynamic_nodes_new.py
-```
+- **Option A – generate locally** (slower, but fully reproducible)
 
-This may take a while; you only need to run it once per configuration.
+  ```bash
+  cd Evaluating_Transformer_Based_Models_for_Clustering_in_Detector_Data
+  python synthetic_data_dynamic_nodes_new.py
+  ```
+
+  This will create the `synthetic_events/` directory with all required `.npz` files.
+
+- **Option B – download a pre‑generated dataset archive**
+
+  1. Download the archive from the shared Google Drive link:  
+     [`synthetic_events` archive](https://drive.google.com/file/d/139C7lTBZOvV4dADI3L0u6XyijFQcxrw4/view?usp=sharing).
+  2. Place the downloaded file in the **`Evaluating_Transformer_Based_Models_for_Clustering_in_Detector_Data`** directory.
+  3. Extract it there so that you end up with a `synthetic_events/` folder next to the training scripts.
 
 ### 3. Train the three models (dynamic mode)
 
